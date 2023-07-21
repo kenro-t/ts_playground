@@ -13,3 +13,20 @@ const p2 = new Promise((resolve, reject) => {
   p2.catch((e) => {
     console.error(e); // キャッチできない
   });
+
+
+const test = new Promise((resolve, reject) => {
+    // throw new Error('ERROR!');
+    try {
+        callback();
+    } catch (error) {
+        throw error;
+    }
+    
+})
+    .catch(e => console.log(e.message))
+
+// コールバック先でエラーをthrowすれば捕捉できる
+function callback () {
+throw new Error('callbackError!')
+}
