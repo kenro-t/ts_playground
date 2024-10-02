@@ -1,8 +1,14 @@
-const Form = ({inputVal, setInputVal}) => {
+import { useState } from "react";
+
+const Form = ({ createTodo }) => {
+    const [enteredTodo, setEnteredTodo] = useState("");
+
     return (
         <>
-        <input type="text" value={inputVal} />
-        <button onClick={(() => setInputVal)}>追加</button>
+        <input type="text"
+            value={enteredTodo}
+        />
+        <button onClick={createTodo}>追加</button>
         </>
     );
 }
