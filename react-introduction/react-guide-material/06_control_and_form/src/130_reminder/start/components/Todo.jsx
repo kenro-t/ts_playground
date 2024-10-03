@@ -18,15 +18,21 @@ const Todo = () => {
     },
   ];
 
+  // todosListの状態を管理するuseState
   const [todos, setTodos] = useState(todosList);
 
   const createTodo = todo => {
-    setTodos(...todos, todo);
+    setTodos([...todos, todo]);
+  }
+
+  const deleteTodo = id => {
+    const filteredTodo = todos.filter(todo => todo.id !== id)
+    setTodos(filteredTodo)
   }
   
   return (
     <>
-      {todosList.map(todo => <List todo={todo}/>)}
+      {<List todos={todos} deleteTodo={deleteTodo}/>}
       <Form createTodo={createTodo}/>
     </>
   );
