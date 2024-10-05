@@ -1,6 +1,7 @@
 import "./Toast.css";
 
 const Toast = ({ visible, handleCloseClick }) => {
+  console.log(visible, handleCloseClick)
   const toastClassName = visible ? "toast is-visible" : "toast";
   return (
     <div className={toastClassName}>
