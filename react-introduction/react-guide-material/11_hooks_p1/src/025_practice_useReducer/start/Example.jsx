@@ -2,7 +2,9 @@ import { useReducer } from "react";
 
 const CALC_OPTIONS = ["add", "minus", "divide", "multiply"];
 
-const reducer = () => {}
+const reducer = (state, {option}) => {
+  console.log(state,option)
+}
 
 const Example = () => {
   const initState = {
@@ -14,7 +16,7 @@ const Example = () => {
   const [state, dispatch] = useReducer(reducer, initState);
 
   const calculate = (e) => {
-    
+    dispatch({option:e.target.value})
   };
 
   const numChangeHandler = (e) => {
@@ -23,9 +25,7 @@ const Example = () => {
 
   return (
     <>
-    <h3>練習問題</h3>
-    <p>useReducerを使って完成コードと同じ機能を作成してください。</p>
-      {/* <div>
+      <div>
         a:
         <input
           type="number"
@@ -44,8 +44,11 @@ const Example = () => {
         />
       </div>
       <select value={state.type} onChange={calculate}>
+        {CALC_OPTIONS.map(option => (
+          <option value={option} key={option}>{option}</option>
+        ))}
       </select>
-      <h1>結果：{state.result}</h1> */}
+      <h1>結果：{state.result}</h1>
     </>
   );
 };
