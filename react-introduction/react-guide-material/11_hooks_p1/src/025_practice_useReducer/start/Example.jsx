@@ -2,8 +2,25 @@ import { useReducer } from "react";
 
 const CALC_OPTIONS = ["add", "minus", "divide", "multiply"];
 
-const reducer = (state, {option}) => {
-  console.log(state,option)
+const reducer = (state, {type, payload}) => {
+  switch(type) {
+    case "change": {
+      const { name, value } = payload;
+      return {...state, [name]: value};
+    }
+    case "add": {
+      return {...state, result: Number(state.a) + Number(state.b) };
+    }
+    case "minus": {
+      return {...state, result: Number(state.a) - Number(state.b) };
+    }
+    case "divide": {
+      return {...state, result: Number(state.a) / Number(state.b) };
+    }
+    case "multiply": {
+      return {...state, result: Number(state.a) * Number(state.b) };
+    }
+  }
 }
 
 const Example = () => {
@@ -16,11 +33,14 @@ const Example = () => {
   const [state, dispatch] = useReducer(reducer, initState);
 
   const calculate = (e) => {
-    dispatch({option:e.target.value})
+    dispatch({ type:e.target.value })
   };
 
   const numChangeHandler = (e) => {
-    
+    dispatch({
+      type: "change",
+      payload: { name: e.target.name, value: e.target.value }
+    });
   }
 
   return (
@@ -44,8 +64,8 @@ const Example = () => {
         />
       </div>
       <select value={state.type} onChange={calculate}>
-        {CALC_OPTIONS.map(option => (
-          <option value={option} key={option}>{option}</option>
+        {CALC_OPTIONS.map(type => (
+          <option value={type} key={type}>{type}</option>
         ))}
       </select>
       <h1>結果：{state.result}</h1>
