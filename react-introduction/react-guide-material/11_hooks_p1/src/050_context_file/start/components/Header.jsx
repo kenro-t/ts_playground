@@ -1,8 +1,7 @@
-import { useContext } from "react";
-import { ThemeContext } from "../Example";
+import { useTheme } from "../context/ThemeContext"
 
 const Header = () => {
-    const [theme, setTheme] = useContext(ThemeContext);
+    const [theme, setTheme] = useTheme();
     const THEMES = ['light', 'dark', 'red'];
     const changeTheme = (e) => setTheme(e.target.value)
 
