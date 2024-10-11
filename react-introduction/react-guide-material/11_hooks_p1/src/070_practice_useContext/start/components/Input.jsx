@@ -1,22 +1,21 @@
-import { useCalcUpdate } from "../context/CalcContext"
+import { useCalcUpdate, useCalc } from "../context/CalcContext"
 
-const Input = () => {
+const Input = ({ name }) => {
+    const state = useCalc()
     const dispatch = useCalcUpdate()
 
-    const calculate = (e) => {
-        dispatch({type: e.target.value});
-    };
+    
     const numChangeHandler = (e) => {
         dispatch({type: 'change', payload: {name: e.target.name, value: e.target.value}});
     };
 
     return (
         <div>
-            a:
+            {name}:
             <input
             type="number"
-            name="a"
-            value={state}
+            name={name}
+            value={state[name]}
             onChange={numChangeHandler}
             />
         </div>

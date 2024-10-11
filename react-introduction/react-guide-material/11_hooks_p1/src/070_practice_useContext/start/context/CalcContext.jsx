@@ -10,7 +10,7 @@ const reducer = (state, { type, payload }) => {
         return { ...state, [name]: value };
       }
       case "add": {
-        return { ...state, result: state.a + state.b };
+        return { ...state, result: Number(state.a) + Number(state.b) };
       }
       case "minus": {
         return { ...state, result: state.a - state.b };
