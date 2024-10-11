@@ -1,15 +1,17 @@
-const List = ({todos, deleteTodo}) => {
+import Item from "./Item"
+import { useTodo } from "../context/TodoContext"
+
+const List = () => {
+    const todoListState = useTodo();
+    console.log(todoListState)
     const complete = (id) => {
         deleteTodo(id)
     }
     return (
         <div>
-            {todos.map(todo => {
+            {todoListState.map(todo => {
                 return (
-                    <div key={todo.id}>
-                        <button onClick={() => complete(todo.id)}>完了</button>
-                        <span>{todo.content}</span>
-                    </div>
+                    <Item key={todo.id} />
                 )
             })}
         </div>

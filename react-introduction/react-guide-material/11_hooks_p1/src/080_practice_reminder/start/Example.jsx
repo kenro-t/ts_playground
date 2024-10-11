@@ -1,8 +1,9 @@
 import Todo from "./components/Todo"
+import { TodoProvider } from "./context/TodoContext";
 
 const Example = () => {
   return (
-    <>
+    <TodoProvider>
     <h3>練習問題</h3>
     <ul>
       <li>Listコンポーネント内の各項目をItemコンポーネントに分離しましょう。</li>
@@ -11,7 +12,7 @@ const Example = () => {
     </ul>
       <h2>Reminder</h2>
       <Todo />
-    </>
+    </TodoProvider>
   );
 };
 
