@@ -1,0 +1,11 @@
+version: '3'
+services:
+  ts_playground:
+    image: node:latest
+    ports:
+      - 3001:3001
+    volumes:
+      - ..:/workspace/ts_playground
+    tty: true
+    restart: always
+    init: true
