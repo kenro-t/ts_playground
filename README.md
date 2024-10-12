@@ -53,3 +53,13 @@ export default defineConfig({
   },
 });
 ```
+
+↓のような追々WSL環境の時だけ読み込めるような設定に調整する
+```
+
+watch: process.platform === 'linux' && process.env.WSL_DISTRO_NAME
+    ? {
+        usePolling: true,
+      }
+    : {},
+```
