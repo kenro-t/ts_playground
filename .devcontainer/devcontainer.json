@@ -22,5 +22,8 @@
         "streetsidesoftware.code-spell-checker"
       ]
     }
-  }
+  },
+  "mounts": [
+    "source=${localEnv:HOME}/.ssh,target=/root/.ssh,type=bind,consistency=cached"
+  ]
 }
