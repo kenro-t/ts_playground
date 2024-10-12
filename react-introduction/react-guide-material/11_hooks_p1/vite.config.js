@@ -9,5 +9,8 @@ export default defineConfig({
   server: {
     // 使用するポート番号の指定 default 5137
     port: 3001,
+    watch: {
+      usePolling: true,
+    },
   },
 });
