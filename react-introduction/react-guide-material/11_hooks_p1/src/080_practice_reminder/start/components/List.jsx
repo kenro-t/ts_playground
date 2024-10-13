@@ -2,16 +2,13 @@ import Item from "./Item"
 import { useTodo } from "../context/TodoContext"
 
 const List = () => {
-    const todoListState = useTodo();
-    console.log(todoListState)
-    const complete = (id) => {
-        deleteTodo(id)
-    }
+    const todoState = useTodo();
+    
     return (
         <div>
-            {todoListState.map(todo => {
+            {todoState.map(todo => {
                 return (
-                    <Item key={todo.id} />
+                    <Item key={todo.id} todo={todo} />
                 )
             })}
         </div>

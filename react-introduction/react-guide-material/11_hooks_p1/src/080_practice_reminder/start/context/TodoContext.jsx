@@ -21,8 +21,15 @@ export const TodoProvider = ({ children }) => {
         }
     ];
 
-    const reducer = () => {
-
+    const reducer = (state, {type, id}) => {
+        switch(type) {
+            case "add": {
+                return
+            }
+            case "delete": {
+                return state.filter((todo) => todo.id !== id);
+            }
+        }
     }
     
     const [ todoState, dispatch ] = useReducer(reducer, initTodoListState);
