@@ -24,7 +24,7 @@ export const TodoProvider = ({ children }) => {
     const reducer = (state, {type, id}) => {
         switch(type) {
             case "add": {
-                return
+                return [...state,{ id:id, content:"neW!"}];
             }
             case "delete": {
                 return state.filter((todo) => todo.id !== id);

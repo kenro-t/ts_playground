@@ -2,9 +2,6 @@ import { useTodoDispatch } from "../context/TodoContext"
 
 const Item = ({ todo }) => {
     const dispatch = useTodoDispatch()
-    const complete = (id) => {
-        deleteTodo(id)
-    }
 
     return (
         <div key={todo.id}>

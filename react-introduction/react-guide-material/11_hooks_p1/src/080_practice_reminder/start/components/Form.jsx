@@ -3,9 +3,7 @@ import { useTodoDispatch } from "../context/TodoContext"
 
 const Form = () => {
   const [enteredTodo, setEnteredTodo] = useState("");
-
   const dispatch =  useTodoDispatch()
-  // const useTodo =  useTodo()
 
   const addTodo = (e) => {
     e.preventDefault();
@@ -16,7 +14,8 @@ const Form = () => {
       editing: false,
     };
 
-    createTodo(newTodo);
+    // createTodo(newTodo);
+    dispatch({type:"add",id:newTodo.id})
 
     setEnteredTodo("");
   };
