@@ -14,7 +14,6 @@ const Form = () => {
       editing: false,
     };
 
-    // createTodo(newTodo);
     dispatch({type:"add",id:newTodo.id})
 
     setEnteredTodo("");
