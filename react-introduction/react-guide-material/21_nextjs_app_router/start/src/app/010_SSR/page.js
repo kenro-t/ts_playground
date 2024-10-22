@@ -1,20 +1,12 @@
-"use client"
-// clientで利用するものは上記のように明示する必要あり
+// SSRの処理のみここで行い、clientの処理についてはClientCompに切り出した
 
-import { useEffect, useState } from "react"
+import ClientComp from "./components/ClientComp";
 
 export default function SSR() {
-    const [state, setState] = useState(undefined);
-    // clientで利用するものはuseEffectで宣言する
-    useEffect(() => {
-        setState('client loaded');
-    },[])
     return (
         <>
             <div>SSR Page</div>
-            <div>{state}</div>
+            <ClientComp />
         </>
     )   
 }
-
-// appディレクトリのディレクトリでルーティングできる
