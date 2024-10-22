@@ -7,5 +7,5 @@ services:
     volumes:
       - ..:/workspace/ts_playground
     tty: true
-    restart: always
+    # restart: always
     init: true
