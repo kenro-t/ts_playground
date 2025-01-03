@@ -1,16 +1,22 @@
-import { serve } from '@hono/node-server'
-import { Hono } from 'hono'
+import { serve } from "@hono/node-server";
 
-const app = new Hono()
+import routes from "./routes/routes.ts"; // TODO: インポートする際の拡張子設定
 
-app.get('/', (c) => {
-  return c.text('Hello Hono!')
-})
+const port = 3000;
+console.log(`Server is running on http://localhost:${port}`);
 
-const port = 3000
-console.log(`Server is running on http://localhost:${port}`)
+// サーバー初期起動設定
+async function bootstrap() {
+  // TODO: ここでサーバーの設定を行う
 
-serve({
-  fetch: app.fetch,
-  port
-})
+  // TODO: 依存性の注入を行う
+
+
+  serve({
+    fetch: routes.fetch,
+    port,
+  });
+}
+
+// サーバーの起動
+bootstrap().catch(console.error);
